@@ -16,8 +16,9 @@
 
 
 // 
+var x = 5;
+alert(++x);
 
-let num = 50;
 
 if (num < 49) {
     console.log("Неверно");
@@ -64,3 +65,76 @@ switch (a) {
   default:
     alert( "Нет таких значений" );
 }
+
+
+let num = 50;
+
+// while (num < 55) {
+//     console.log(num);
+//     num++;
+// }
+
+do {
+    console.log(num);
+    num++;
+}
+while (num < 55);
+
+for (let i = 1; i < 8; i++) {
+    if (i == 6) {
+        continue;
+    }
+    console.log(i);
+}
+
+
+var a = [];
+var b = a + false - null + true;
+
+console.log(b);
+
+
+let y = 1;
+let x = y = 2;
+
+console.log(x);
+
+
+
+var a = [];
+var b = a + 1 + 2;
+
+console.log(b);
+
+console.log("1"[0]);
+
+
+
+
+
+
+
+var a = 2 && 1 && null && 0 && undefined;
+console.log(a);
+
+
+var z = !!( a && b);
+var po = (a && b);
+
+if (z == po) {
+    console.log('Ты прав Димас');
+} else {
+    console.log('Ты не прав, блэт');
+}
+
+
+console.log(!!( a && b) == (a && b));
+
+
+console.log(null || 2 && 3 || 4);
+
+
+
+
+
+
