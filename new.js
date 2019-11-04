@@ -32,7 +32,6 @@ start();
 
 
 
-
 let appData = {
     budget: money,
     expenses: {},
@@ -85,32 +84,58 @@ chooseExpenses();
 // } while (i < 2);
 
 
-appData.moneyPerDay = (appData.budget / 30).toFixed();
-
-alert("Ежедневный бюджет: " + appData.moneyPerDay);
-
-if (appData.moneyPerDay < 100) {
-    console.log('Минимальный уровень достатка');
-} else if (appData.moneyPerDay > 100 && appData.moneyPerDay < 2000) {
-    console.log("Средний уровень достатка");
-} else if (appData.moneyPerDay > 2000) {
-    console.log("Высокий уровень достатка");
-} else {
-    console.log("Произошла ошибка");
+function detectDayBudget() {
+    appData.moneyPerDay = (appData.budget / 30).toFixed();
+    alert("Ежедневный бюджет: " + appData.moneyPerDay);
 }
 
+detectDayBudget();
 
-function checkSavings() {
-    if (appData.savings == true) {
-        let save = +prompt("Какова сумма накоплений,"),
-        percent = +prompt("Под какой процент?");
 
-        appData.monthIncome = save/100/12*percent;
-        alert("Доход в месяц с вашего депозита: " + appData.monthIncome);
+function detectLevel() {
+    if (appData.moneyPerDay < 100) {
+        console.log('Минимальный уровень достатка');
+    } else if (appData.moneyPerDay > 100 && appData.moneyPerDay < 2000) {
+        console.log("Средний уровень достатка");
+    } else if (appData.moneyPerDay > 2000) {
+        console.log("Высокий уровень достатка");
+    } else {
+        console.log("Произошла ошибка");
     }
 }
 
-checkSavings();
+detectLevel();
+
+
+
+
+
+function chooseOptExpenses() {
+    for (i = 0; i < 3; i++) {
+        let point = prompt('Статья обязательных расходов?');
+        let howMuch = +prompt('Сколько откладываете?');
+        appData.optionalExpenses[point] = howMuch;
+    } 
+}
+
+chooseOptExpenses();
+
+
+
+
+
+
+// function checkSavings() {
+//     if (appData.savings == true) {
+//         let save = +prompt("Какова сумма накоплений,"),
+//         percent = +prompt("Под какой процент?");
+
+//         appData.monthIncome = save/100/12*percent;
+//         alert("Доход в месяц с вашего депозита: " + appData.monthIncome);
+//     }
+// }
+
+// checkSavings();
 
 
 
